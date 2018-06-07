@@ -1,0 +1,10 @@
+﻿<?xml version="1.0"?>
+<!-- 
+  Visual Studio global web project settings.
+-->
+<VisualWebDeveloper>
+
+  <Globals>
+    <UserProperties Scripts_4ueditor_4net_4config_1json__JSONSchema=""/>
+  </Globals>
+</VisualWebDeveloper>

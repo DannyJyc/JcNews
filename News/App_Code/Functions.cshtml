@@ -1,0 +1,11 @@
+﻿<!-- 这里应该是个重点区域的啊。。。 -->
+@functions{
+
+    public static string ClassName(int id)
+    {
+        var db = Database.Open("News");
+        var list = db.QuerySingle("select * from Classes where Id="+id);
+        return list.Name;
+    }
+}
+

@@ -1,0 +1,13 @@
+﻿@{
+    var db = Database.Open("News");
+    var id = Request["id"];
+    var list = "select * from NewsContents where Id=" + id;
+}
+<a href="~/ForeList.cshtml">返回列表</a>
+@foreach (var content in db.Query(list))
+{
+    <h1>@content.Title</h1>
+    <h2>@content.Createdate</h2>
+    <h2>所属类别：@Functions.ClassName(content.ClassesId)</h2>
+    <h3>@Html.Raw(content.Content)</h3>
+}

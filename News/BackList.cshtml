@@ -1,0 +1,23 @@
+﻿@{
+    var db = Database.Open("News");
+    var list = "select * from NewsContents";
+}
+<a href="AddNews.cshtml">点此新增</a>
+<table border="1">
+    <tr>
+        <th>标题</th>
+        <th>创建时间</th>
+        <th>所属类别</th>
+        <th>操作</th>
+    </tr>
+    @foreach (var Back in db.Query(list))
+    {
+        <tr>
+            <td><a href="~/EditNews.cshtml?id=@Back.Id">@Back.Title</a></td>
+            <td>@Back.CreateDate</td>
+            <td>@Functions.ClassName(Back.ClassesId)</td>
+            <td><a href="~/DelNews.cshtml?id=@Back.Id">删除</a></td>
+        </tr>
+    }
+
+</table>

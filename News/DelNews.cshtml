@@ -1,0 +1,21 @@
+﻿@{
+    var db = Database.Open("News");
+    var id = Request["id"];
+    var list = db.QuerySingle("select * from NewsContents where Id=" + id);
+
+    if (IsPost)
+    {
+        db.Execute("delete NewsContents where Id="+id);
+        Response.Redirect("~/BackList.cshtml");
+    }
+
+}
+<form method="post">
+    标题：
+    @list.Title<br/>
+    创建时间：
+    @list.Createdate<br />
+    内容：
+    @Html.Raw(list.Content)<br />
+    <input type="submit" name="name" value="确认删除"/>
+</form>

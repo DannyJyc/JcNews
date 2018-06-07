@@ -1,0 +1,14 @@
+﻿@{
+    var db = Database.Open("News");
+    var list = "select * from NewsContents";
+}
+
+@foreach (var Fore in db.Query(list))
+{
+    <div>
+        <h2><a href="~/ForeContent.cshtml?id=@Fore.Id">@Fore.Title</a></h2>
+        <h3>@Fore.Createdate</h3>
+        <h4>所属分类:@Functions.ClassName(Fore.ClassesId)</h4>
+    </div>
+    <hr/>
+}
